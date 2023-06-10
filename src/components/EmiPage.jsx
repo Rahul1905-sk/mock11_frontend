@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
 
 const init = {
   loanAmt: 100000,
@@ -20,6 +21,14 @@ let res = await axios.patch('')
 
 
 }
+
+
+const token = localStorage.getItem('token');
+
+if(!token) {
+return <Navigate to={'/login'} />
+}
+
 
   return (
     <div>
